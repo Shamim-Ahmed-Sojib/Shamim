@@ -1,229 +1,568 @@
 /* ========================================
-   Shamim Ahmed Sojib — Professional & Futuristic Theme (Dark)
-   ======================================== */
-
-/* --- Base & Typography --- */
-body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: #05070b;
-}
-
-.font-display {
-    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
-}
-
-/* --- Futuristic Grid Background (dark) --- */
-.tech-grid {
-    background-color: #05070b;
-    background-image:
-        linear-gradient(to right, rgba(6, 182, 212, 0.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(6, 182, 212, 0.08) 1px, transparent 1px);
-    background-size: 40px 40px;
-    background-attachment: fixed;
-}
-
-/* --- Glassmorphism Panels (dark, genuinely translucent) --- */
-.glass-panel {
-    background: rgba(15, 23, 42, 0.45);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(148, 163, 184, 0.12);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
-    transition: box-shadow 0.5s ease, border-color 0.5s ease;
-    will-change: transform;
-    backface-visibility: hidden;
-}
-
-/* --- Gradient Text Utility (Cyan/Tech Theme) --- */
-.gradient-text {
-    background: linear-gradient(135deg, #06b6d4 0%, #2563eb 50%, #3b82f6 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* --- Advanced Bento Card Hover (smoothed) --- */
-.bento-card {
-    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-                box-shadow 0.6s ease,
-                border-color 0.6s ease;
-    will-change: transform;
-    backface-visibility: hidden;
-}
-
-.bento-card:hover {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: 0 25px 50px -12px rgba(6, 182, 212, 0.15);
-    border-color: rgba(6, 182, 212, 0.3);
-}
-
-/* --- Profile Float Animation (longer, smoother) --- */
-@keyframes profileFloat {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-12px); }
-    100% { transform: translateY(0px); }
-}
-
-.profile-float {
-    animation: profileFloat 6s ease-in-out infinite;
-    will-change: transform;
-    backface-visibility: hidden;
-}
-
-/* --- Navigation Links Underline Effect (smoother) --- */
-.nav-link {
-    position: relative;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #06b6d4;
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 1px;
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-/* --- Mobile Menu Animation (smooth open/close) --- */
-.mobile-menu {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform;
-    backface-visibility: hidden;
-}
-
-.mobile-menu.open {
-    max-height: 400px;
-}
-
-/* --- Fade In & Slide Up Animations --- */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.slide-up {
-    opacity: 0;
-    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    will-change: transform;
-    backface-visibility: hidden;
-}
-
-/* --- Mission Card Dark Tech Style --- */
-.mission-card {
-    position: relative;
-    box-shadow: 0 0 40px -10px rgba(6, 182, 212, 0.2);
-    transition: box-shadow 0.7s ease;
-    will-change: transform;
-    backface-visibility: hidden;
-}
-
-.mission-card:hover {
-    box-shadow: 0 0 60px -15px rgba(6, 182, 212, 0.4);
-}
-
-/* --- Selection Color --- */
-::selection {
-    background: #cffafe;
-    color: #083344;
-}
-
-/* --- Scrollbar Styling (Webkit) --- */
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: #0b0f1a;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #06b6d4;
-}
-
-/* --- Smooth Scroll Offset for Fixed Nav --- */
-section[id] {
-    scroll-margin-top: 90px;
-}
-
-/* --- Form Focus States --- */
-input:focus,
-textarea:focus {
-    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1);
-}
-
-/* --- Button Press Effect --- */
-button:active {
-    transform: scale(0.95) !important;
-}
-
-/* ========================================
-   Cover / Hero Photo Treatment
+   Shamim Ahmed Sojib — Executive Dossier Theme
+   Navy / Cream / Gold — serif display + monospace detail
    ======================================== */
 
 :root {
-    --cover-focus-y: 22%;
+    --navy: #10233d;
+    --navy-deep: #0a1929;
+    --cream: #f4f0e5;
+    --cream-deep: #e9e3d4;
+    --gold: #d0aa35;
+    --gold-soft: rgba(208, 170, 53, 0.16);
+    --ink: #10233d;
+    --paper: #f4f0e5;
 }
 
-.cover-photo-img {
-    object-fit: cover;
-    object-position: center var(--cover-focus-y);
-    filter: contrast(1.08) brightness(1.12);
-    will-change: transform;
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--navy);
+    color: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.cover-overlay {
-    background: linear-gradient(180deg,
-        rgba(5, 7, 11, 0.10) 0%,
-        rgba(5, 7, 11, 0.05) 35%,
-        rgba(5, 7, 11, 0.55) 92%,
-        #05070b 100%);
+.font-serif { font-family: 'Playfair Display', 'Georgia', serif; }
+.font-mono { font-family: 'JetBrains Mono', 'SFMono-Regular', monospace; }
+
+a { color: inherit; text-decoration: none; }
+
+/* --- Page section rhythm --- */
+.section { padding: 5rem 1.5rem; }
+.section-inner { max-width: 72rem; margin: 0 auto; }
+
+.on-navy { background: var(--navy); color: var(--cream); }
+.on-navy-deep { background: var(--navy-deep); color: var(--cream); }
+.on-cream { background: var(--cream); color: var(--navy); }
+.on-cream-deep { background: var(--cream-deep); color: var(--navy); }
+
+/* --- Nav --- */
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--cream);
+    border-bottom: 1px solid rgba(16, 35, 61, 0.12);
 }
 
-.cover-scanline {
-    background: repeating-linear-gradient(
-        180deg,
-        rgba(6, 182, 212, 0.05) 0px,
-        rgba(6, 182, 212, 0.05) 1px,
-        transparent 1px,
-        transparent 3px
-    );
-    mix-blend-mode: screen;
+.nav-inner {
+    max-width: 78rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.profile-card {
-    background: linear-gradient(160deg, #06b6d4 0%, #2563eb 55%, #0f172a 100%);
-    box-shadow: 0 20px 60px -15px rgba(6, 182, 212, 0.45), 0 0 0 1px rgba(6, 182, 212, 0.15);
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.brand-mark {
+    width: 2.25rem;
+    height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    color: var(--navy);
+    flex-shrink: 0;
+    position: relative;
+}
+
+.brand-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Small insignia mark — a corner seal, echoing the dossier "verified" motif */
+.brand-mark::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--cream);
+}
+
+.brand-name {
+    color: var(--navy);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: none;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (min-width: 900px) {
+    .nav-links { display: flex; }
+}
+
+.nav-links a {
+    font-size: 0.85rem;
+    color: var(--navy);
+    opacity: 0.75;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: opacity 0.25s ease;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+    opacity: 1;
+    border-bottom-color: var(--gold);
+}
+
+.nav-toggle {
+    display: flex;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--navy);
+}
+
+@media (min-width: 900px) {
+    .nav-toggle { display: none; }
+}
+
+.mobile-nav {
+    max-height: 0;
+    overflow: hidden;
+    background: var(--cream);
+    border-bottom: 1px solid rgba(16, 35, 61, 0.12);
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav.open { max-height: 24rem; }
+
+.mobile-nav a {
+    display: block;
+    padding: 0.9rem 1.5rem;
+    color: var(--navy);
+    font-size: 0.95rem;
+    border-top: 1px solid rgba(16, 35, 61, 0.08);
+}
+
+/* --- Eyebrow / status pill --- */
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid rgba(208, 170, 53, 0.4);
+    background: rgba(244, 240, 229, 0.04);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--cream);
+}
+
+.pulse-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--gold);
+    position: relative;
+}
+
+.pulse-dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    animation: pulseRing 2.4s ease-out infinite;
+}
+
+@keyframes pulseRing {
+    0% { transform: scale(0.6); opacity: 0.8; }
+    100% { transform: scale(1.8); opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .profile-float,
-    .fade-in,
-    .slide-up {
-        animation: none !important;
+    .pulse-dot::after { animation: none; }
+}
+
+/* --- Hero headline --- */
+.hero-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    margin: 0;
+}
+
+.hero-name .accent {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 500;
+}
+
+/* --- Buttons --- */
+.btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.85rem 1.6rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -8px rgba(208, 170, 53, 0.45);
+}
+
+.btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--cream);
+    border-bottom: 1px solid rgba(244, 240, 229, 0.4);
+    padding-bottom: 0.2rem;
+    transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+.btn-ghost-navy {
+    color: var(--navy);
+    border-bottom: 1px solid rgba(16, 35, 61, 0.35);
+}
+
+.btn-ghost-navy:hover { border-color: var(--gold); }
+
+/* --- Tag pills (competency tags) --- */
+.tag {
+    display: inline-block;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid rgba(244, 240, 229, 0.25);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+}
+
+.tag-navy {
+    border-color: rgba(16, 35, 61, 0.25);
+    color: var(--navy);
+}
+
+/* --- Dossier / profile card (hero, right column) --- */
+.dossier-card {
+    background: rgba(244, 240, 229, 0.03);
+    border: 1px solid rgba(244, 240, 229, 0.14);
+    position: relative;
+}
+
+.dossier-tab {
+    position: absolute;
+    top: 0;
+    right: 2.5rem;
+    width: 4rem;
+    height: 0.6rem;
+    background: var(--gold);
+}
+
+.dossier-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 1.4rem;
+    border-bottom: 1px dashed rgba(244, 240, 229, 0.18);
+}
+
+.verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 1px solid rgba(208, 170, 53, 0.5);
+    color: var(--gold);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.6rem;
+}
+
+.dossier-photo {
+    width: 7.5rem;
+    height: 7.5rem;
+    margin: 1.6rem auto 1rem;
+    border: 1px solid var(--gold);
+    padding: 0.35rem;
+    animation: photoFloat 6s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes photoFloat {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.dossier-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.dossier-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.4rem;
+    border-top: 1px solid rgba(244, 240, 229, 0.1);
+    font-size: 0.85rem;
+}
+
+.dossier-row .label {
+    color: rgba(244, 240, 229, 0.55);
+}
+
+.dossier-row .value {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--gold);
+    font-size: 0.8rem;
+}
+
+/* --- Page header band (used on every sub-page) --- */
+.page-header {
+    padding: 3.5rem 1.5rem 3rem;
+    background: var(--navy);
+    border-bottom: 1px solid rgba(244, 240, 229, 0.1);
+}
+
+.page-header-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+}
+
+.page-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.page-kicker::before {
+    content: '';
+    width: 1.5rem;
+    height: 1px;
+    background: var(--gold);
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    margin: 0.6rem 0 0;
+    color: var(--cream);
+}
+
+@media (min-width: 700px) {
+    .page-title { font-size: 3rem; }
+}
+
+/* --- Content cards (experience, education, credentials) --- */
+.record {
+    border-top: 1px solid rgba(16, 35, 61, 0.15);
+    padding: 2rem 0;
+    display: grid;
+    gap: 0.35rem;
+    transition: background-color 0.4s ease;
+}
+
+.record:hover {
+    background-color: rgba(208, 170, 53, 0.04);
+}
+
+@media (min-width: 800px) {
+    .record {
+        grid-template-columns: 15rem 1fr;
+        gap: 2.5rem;
     }
 }
+
+.record:last-child { border-bottom: 1px solid rgba(16, 35, 61, 0.15); }
+
+.record-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: rgba(16, 35, 61, 0.6);
+    line-height: 1.6;
+}
+
+.record-meta .current {
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.record-meta .current::before {
+    content: '● ';
+    color: var(--gold);
+}
+
+.record-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    margin: 0 0 0.2rem;
+    color: var(--navy);
+}
+
+.record-org {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.9rem;
+}
+
+.record-body p {
+    margin: 0 0 0.9rem;
+    line-height: 1.75;
+    color: rgba(16, 35, 61, 0.85);
+    max-width: 42rem;
+}
+
+.record-body p:last-child { margin-bottom: 0; }
+
+/* --- Simple stat / info card --- */
+.info-card {
+    border: 1px solid rgba(16, 35, 61, 0.15);
+    padding: 1.6rem;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+    will-change: transform;
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: 0 14px 30px -14px rgba(16, 35, 61, 0.25);
+}
+
+.info-card .k {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.info-card .v {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--navy);
+}
+
+.info-card .d {
+    font-size: 0.85rem;
+    color: rgba(16, 35, 61, 0.6);
+    margin-top: 0.3rem;
+}
+
+/* --- Skill chip --- */
+.chip {
+    display: inline-block;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid rgba(16, 35, 61, 0.2);
+    font-size: 0.85rem;
+    color: var(--navy);
+    margin: 0 0.5rem 0.5rem 0;
+}
+
+/* --- Contact form --- */
+.field {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: transparent;
+    border: 1px solid rgba(16, 35, 61, 0.25);
+    color: var(--navy);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+}
+
+.field::placeholder { color: rgba(16, 35, 61, 0.45); }
+
+.field:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(208, 170, 53, 0.15);
+}
+
+/* --- Footer --- */
+.site-footer {
+    background: var(--navy-deep);
+    padding: 2.5rem 1.5rem;
+    border-top: 1px solid rgba(244, 240, 229, 0.08);
+}
+
+.footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.82rem;
+    color: rgba(244, 240, 229, 0.55);
+}
+
+.footer-inner a { color: rgba(244, 240, 229, 0.75); }
+.footer-inner a:hover { color: var(--gold); }
+
+/* --- Motion: one entrance only, respects reduced motion --- */
+@keyframes riseIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.rise-in {
+    animation: riseIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rise-in { animation: none; }
+    .pulse-dot::after { animation: none; }
+    .dossier-photo { animation: none; }
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--navy-deep); }
+::-webkit-scrollbar-thumb { background: rgba(208, 170, 53, 0.5); }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+::selection { background: var(--gold-soft); color: var(--navy); }

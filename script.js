@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile menu toggle
-    const toggle = document.getElementById('mobile-toggle');
-    const menu = document.getElementById('mobile-menu');
+    // Mobile nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('mobile-nav');
 
     if (toggle && menu) {
         toggle.addEventListener('click', () => {
@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!response.ok) throw new Error('Request failed');
 
                 status.textContent = "Message sent — thank you! I'll get back to you soon.";
-                status.className = 'text-sm font-medium text-emerald-600';
+                status.style.color = '#2f6f4e';
                 form.reset();
             } catch (err) {
                 status.textContent = "Something went wrong sending your message. Please email directly at shsojib.x@gmail.com.";
-                status.className = 'text-sm font-medium text-red-600';
+                status.style.color = '#a33';
             } finally {
                 submitBtn.disabled = false;
                 submitLabel.textContent = 'Send Message';
